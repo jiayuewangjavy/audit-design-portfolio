@@ -1,5 +1,4 @@
 interface:
   display_name: "Audit Design Portfolio"
-  short_description: "Evidence-based portfolio and JD audit"
-  default_prompt: "Use $audit-design-portfolio to audit my design portfolio against this job description and give evidence-based, prioritized recommendations without editing it."
-
+  short_description: "Visual, evidence-based portfolio and JD audit"
+  default_prompt: "Use $audit-design-portfolio to audit my complete portfolio against this JD, annotate captured website or PDF views, and deliver a standalone visual HTML report without editing the original."

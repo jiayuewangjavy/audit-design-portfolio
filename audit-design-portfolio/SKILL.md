@@ -1,6 +1,6 @@
 ---
 name: audit-design-portfolio
-description: Audit a UI/UX, product design, UX research, content design, UX engineering, or design engineering portfolio against a target job description. Use when a job seeker or student provides a portfolio website, PDF, screenshots, case studies, or work samples together with a JD and wants an evidence-based portfolio review, job-fit analysis, recruiter and hiring-manager perspectives, concrete improvement examples, or a follow-up re-audit. Produce findings and suggestions only; never edit the portfolio or invent candidate evidence.
+description: Audit a UI/UX, product design, UX research, content design, UX engineering, or design engineering portfolio against a target job description and deliver a standalone visual HTML report with annotated website screenshots or rendered PDF pages. Use when a job seeker or student provides a portfolio website, PDF, screenshots, case studies, or work samples together with a JD and wants an evidence-based portfolio review, job-fit analysis, visual page annotations, recruiter and hiring-manager perspectives, concrete improvement examples, or a follow-up re-audit. Produce findings and suggestions only; never edit the portfolio or invent candidate evidence.
 ---
 
 # Audit Design Portfolio
@@ -17,6 +17,9 @@ Audit a candidate's portfolio against a specific job description. Base every jud
 - Give concrete example structures with explicit placeholders for facts only the candidate can supply.
 - Audit the portfolio as a complete body of work. Inventory every submitted or reachable case study and assess what the collection communicates together.
 - Do not silently select one representative case and treat it as the whole portfolio.
+- Treat the visual report as the primary deliverable. Do not use a long chat response as the final report.
+- Create a self-contained HTML report and return a short chat summary with a link to that artifact.
+- Place captured portfolio views and their numbered findings in the same report.
 - Match the language of the user's request unless the user asks for another language.
 - State what could not be inspected and label it `Not assessable`.
 
@@ -43,15 +46,17 @@ Never require optional inputs when a useful audit is still possible.
 
 ## Capability detection
 
-Use whatever read-only tools the host agent provides.
+Use whatever read-only and file-output tools the host agent provides.
 
-- For a website, inspect reachable pages, navigation, responsive behavior, and technical health when browser or diagnostic tools are available.
-- For a PDF, inspect text and rendered pages when document or vision tools are available.
+- For a website, open the intended navigation, inspect every reachable case study, and capture each view with a material finding. Capture representative desktop and mobile views when responsive review is in scope.
+- For a PDF, inspect the text and render every page containing a material finding.
 - For screenshots, distinguish visible evidence from content that may exist outside the captured area.
-- When screenshot, image-markup, or PDF-annotation tools are available, create annotated copies with numbered callouts. Never write to the live website or overwrite the submitted PDF.
-- When the host can view but not annotate an artifact, return numbered findings mapped to exact pages, headings, screenshots, or visible regions.
-- When the host cannot open a URL or render a PDF, ask for an accessible export or screenshots. Continue with available content and label the visual review limitation.
-- When a capability is unavailable, continue with accessible material and record the limitation. Never imply that a check ran when it did not.
+- Use numbered HTML overlay pins on captured or rendered copies. This does not require changing image pixels or the live DOM.
+- Never write to the live website or overwrite the submitted PDF.
+- When the host cannot capture a website or render a PDF, ask the user for screenshots or an accessible export before completing a visual audit.
+- Use location-only findings only when the user explicitly accepts that degraded mode. Do not silently replace the requested annotation report with chat text.
+- If the host cannot create files, ask for a writable workspace or state that the required report artifact cannot be completed. Do not claim a chat transcript is the visual report.
+- When any capability is unavailable, record the limitation. Never imply that a check ran when it did not.
 - Do not bypass access controls. If a portfolio is password protected, ask the user to provide an authorized access method or a PDF backup.
 
 ## Required references
@@ -60,7 +65,11 @@ Read [audit-framework.md](references/audit-framework.md) for the evidence system
 
 After identifying the target discipline, read the corresponding sections of [role-lenses.md](references/role-lenses.md). Apply only relevant role criteria; do not judge every candidate as a generalist product designer.
 
-Read [report-template.md](references/report-template.md) before writing the final audit. Follow its structure while adapting depth to the available evidence.
+Read [report-template.md](references/report-template.md) before preparing the final audit. Follow its artifact-first information hierarchy.
+
+Read [report-data-schema.md](references/report-data-schema.md) before creating report data. Use `scripts/build_report.mjs` and the files in `assets/report/` to build the self-contained HTML report.
+
+Read [visual-annotations.md](references/visual-annotations.md) before capturing website views or rendering PDF pages.
 
 Use [research-basis.md](references/research-basis.md) when explaining why a criterion exists, maintaining the skill, or tracing the market and hiring guidance behind the framework. Do not burden a normal audit with external citations unless the user asks for them.
 
@@ -137,20 +146,31 @@ For every material finding:
 
 Do not repeat identical feedback for every case. Record a portfolio-wide pattern once, then cite every case that demonstrates it and note meaningful exceptions.
 
-### 6. Produce the visual annotation pack
+### 6. Capture the visual evidence set
 
-When the host supports visual output:
+Before building the final report:
 
-- Capture or render the relevant website views and PDF pages.
-- Preserve an unmodified source copy.
-- Add numbered callouts to copies only.
-- Map every callout ID to a finding with observation, evidence grade, JD relevance, risk, and recommendation.
-- Use labels and shapes in addition to color so annotations remain accessible.
-- Include both local issues and portfolio-wide pattern references.
+- Capture or render the portfolio-wide surfaces and case-study pages that contain material findings.
+- Preserve URLs, PDF page numbers, viewport details, and capture context.
+- Keep every source file or live page unmodified.
+- Use multiple readable captures for long pages rather than one illegible full-page image.
+- Assign stable finding IDs and normalized `x`/`y` coordinates to visible issues.
+- Include unmarked items in the inventory even when they do not need a screenshot.
+- Capture one readable source view per material finding by default. Reuse one
+  view for multiple findings on the same surface.
+- Capture mobile only when responsive behavior is in scope, a mobile-specific
+  issue is observed, or the user requests it.
+- Do not create redundant viewport, full-page, desktop, and mobile variants
+  after every material finding already has a readable source.
+- Stop capture and build the report as soon as the evidence set covers the
+  material findings and complete portfolio inventory.
 
-When direct visual annotation is unavailable, produce the same callout index as text with exact locations. State `Visual overlay not available in this host`.
+For a website, "annotate the website" means annotate captured views inside the
+report. Never inject persistent markers into the live DOM or deploy changes.
 
-Follow [visual-annotations.md](references/visual-annotations.md) for source preservation, coverage, callout IDs, accessibility, and degraded modes.
+If capture or rendering is unavailable, request user-provided screenshots or
+an export. Use a location-only report only after the user accepts the
+limitation.
 
 ### 7. Build the JD-to-evidence matrix
 
@@ -241,6 +261,39 @@ List only questions whose answers could materially change the audit or fill impo
 
 Do not turn the report into a long generic intake questionnaire.
 
+### 13. Build and verify the report artifact
+
+1. Create `report-data.json` using [report-data-schema.md](references/report-data-schema.md).
+2. Run:
+
+```text
+node <skill-directory>/scripts/build_report.mjs report-data.json --output portfolio-audit-report.html
+```
+
+3. Open the generated HTML and verify:
+   - The cover, contents, and all report chapters render.
+   - Every captured source appears at readable resolution.
+   - Every visible pin opens or links to the matching finding ID.
+   - Finding filters, keyboard focus, responsive reflow, and print layout work.
+   - All local images are embedded in the single HTML file.
+   - No score, match percentage, invented fact, password, or secret appears.
+4. Keep `report-data.json` when a future re-audit is likely.
+
+Do not stop after writing analysis in chat or after producing only the JSON.
+The HTML file is the completion artifact.
+
+## Final delivery
+
+Return only:
+
+- A concise diagnosis of no more than five bullets
+- A link to `portfolio-audit-report.html`
+- A short list of unavailable or unassessed material
+- An optional link to `report-data.json` for re-audit
+
+Do not paste the full audit into the conversation when the report artifact was
+created successfully.
+
 ## Re-audit mode
 
 When a previous audit and revised portfolio are available:
@@ -259,7 +312,10 @@ Before returning an audit, verify that:
 - Every important judgment points to evidence or is labeled as inference.
 - The portfolio inventory includes every submitted or reachable case, or explicitly lists what could not be opened.
 - The report synthesizes the complete body of work before giving project-level advice.
-- Visual annotations, when produced, map one-to-one to report finding IDs and modify copies only.
+- A self-contained HTML report exists and opens successfully.
+- The chat response links to the report instead of duplicating it.
+- Visual annotations map one-to-one to report finding IDs and modify captured or rendered copies only.
+- Every material website or PDF finding has a visual pin, or the user explicitly accepted a documented degraded mode.
 - Every material JD requirement appears in the matrix.
 - Role and seniority expectations are calibrated.
 - Portfolio quality and JD fit remain separate.

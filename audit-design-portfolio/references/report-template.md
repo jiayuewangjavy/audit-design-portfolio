@@ -1,211 +1,198 @@
-# Portfolio Audit Report Template
-
-Adapt the depth to the inspected material. Keep evidence tables concise enough to use.
+# Visual Portfolio Audit Report Specification
 
 ## Contents
 
-- Audit scope
+- Delivery contract
+- Visual direction
+- Report sequence
+- Cover
 - Executive diagnosis
-- Complete portfolio inventory
-- JD capability model
-- Fast-screen impression
-- Visual annotation pack
-- JD-to-evidence matrix
-- Overall portfolio findings
-- Project-by-project review
-- Reviewer lenses
-- Portfolio experience and technical health
+- Annotated evidence
+- Detailed findings
 - Prioritized action plan
-- Concrete suggestion examples
-- Questions for the candidate
-- Re-audit appendix
+- Complete portfolio inventory
+- JD-to-evidence review
+- Reviewer lenses
+- Experience and health
+- Scope and candidate questions
+- Chat handoff
 
-## 1. Audit scope
+## Delivery contract
 
-- Target role:
-- Target level:
-- Candidate context:
-- Primary role lens:
-- Secondary role lens, if any:
-- Materials inspected:
-- Materials unavailable:
-- Focus questions:
-- Tool, access, or NDA limitations:
+Create a self-contained `portfolio-audit-report.html` as the primary
+deliverable. Build it from `report-data.json` with
+`scripts/build_report.mjs`. Keep the full audit out of the chat response.
 
-Label inferred fields.
+The report must:
 
-## 2. Executive diagnosis
+- Open locally without a server or build step
+- Embed local screenshot and rendered-page assets
+- Remain useful when printed to PDF
+- Work with keyboard navigation and browser zoom
+- Link every visual pin to one detailed finding
+- Cover the complete submitted portfolio
+- Preserve evidence grades without scores or percentages
+- Keep recommendations candidate-controlled
 
-Write a short evidence-based conclusion that separates:
+## Visual direction
 
-- `Portfolio quality`
-- `Fit for this JD`
-- `Primary strength`
-- `Primary application risk`
-- `Most valuable next action`
+Use an editorial review dossier rather than a SaaS analytics dashboard.
 
-Do not include a score or match percentage.
+- Warm paper, ink-like neutrals, and one restrained annotation color
+- Strong serif and sans-serif hierarchy
+- Asymmetric chapter headings and deliberate whitespace
+- Ruled tables and flat editorial groupings
+- Source captures and critique in the same visual field
+- Stable numbered markers rather than decorative charts
 
-## 3. Complete portfolio inventory
+Avoid repeated rounded cards, nested containers, glass effects, purple-blue
+gradients, giant metrics, score gauges, traffic-light summaries, and chat
+transcript styling.
 
-| Item | Type | Project status | Candidate role | Capabilities shown | JD relevance | Contribution to positioning | Access status |
-|---|---|---|---|---|---|---|---|
+## Report sequence
 
-Include every submitted or reachable case study. List inaccessible items as `Not assessable`.
+Use this default reading order:
 
-### Whole-portfolio synthesis
+1. Cover
+2. Executive diagnosis
+3. Annotated evidence
+4. Detailed findings
+5. Prioritized action plan
+6. Complete portfolio inventory
+7. JD-to-evidence review
+8. Reviewer lenses
+9. Portfolio experience and health
+10. Scope, limitations, and candidate questions
 
-- Combined professional story:
-- Capability coverage across all projects:
-- Repeated strengths:
-- Repeated weaknesses:
-- Important contradictions:
-- Project ordering and curation:
-- Missing evidence across the complete collection:
+Adapt optional sections to the evidence, but do not remove the annotated
+evidence, detailed findings, action plan, inventory, or JD review.
 
-## 4. JD capability model
+## Cover
 
-| Requirement | Importance | What credible portfolio evidence would look like |
-|---|---|---|
+Show:
 
-Flag requirements that are vague, contradictory, or not reasonably observable from a portfolio.
+- Report title
+- Candidate or portfolio owner
+- Target role and company
+- Audit date
+- Annotation mode
+- The statement `No scores · Observable evidence only`
 
-## 5. Fast-screen impression
+Do not place fake metrics or decorative charts on the cover.
 
-### Likely first takeaway
+## Executive diagnosis
 
-### Signals that help
+Write one concise thesis and separate:
 
-### Early-screen risks
+- Portfolio quality
+- Fit for this JD
+- Primary strength
+- Primary application risk
+- Most valuable next action
 
-### What could be misunderstood
+Keep portfolio quality and job alignment distinct.
 
-## 6. Visual annotation pack
+## Annotated evidence
 
-- Annotation mode: `Annotated artifact`, `Visual reference`, or `Location-only`
-- Files or views produced:
-- Surfaces covered:
-- Surfaces not assessable:
+Create one evidence plate per captured website view or rendered PDF page.
+Each plate contains:
 
-| ID | Artifact and location | Short label | Evidence grade | Full finding | Recommended response |
-|---|---|---|---|---|---|
+- Readable source capture
+- Source URL or PDF page number
+- Viewport or render context
+- Numbered overlay pins
+- Adjacent short finding index
 
-Use the same IDs in images, rendered PDF pages, detailed findings, and re-audits.
+Clicking a pin or short finding must lead to the matching detailed finding.
+Use multiple plates for long pages. Do not shrink a full page until its text is
+unreadable.
 
-## 7. JD-to-evidence matrix
+## Detailed findings
 
-| JD requirement | Importance | Evidence found | Location | Evidence grade | Interpretation and hiring risk | Recommended response |
-|---|---|---|---|---|---|---|
+For every material finding include:
 
-Use only:
+- Stable ID
+- Evidence grade
+- Priority
+- Exact location
+- Observation
+- Why it matters for the JD
+- Recommended response
+- Concrete example structure when useful
+- Candidate facts that must be verified or supplied
 
-- `Strong evidence`
-- `Partial evidence`
-- `Missing evidence`
-- `Contradictory evidence`
-- `Not assessable`
+State the observation before interpretation. Never provide invented final
+portfolio copy.
 
-## 8. Overall portfolio findings
+## Prioritized action plan
 
-Cover only material dimensions:
+Group actions with:
 
-- Positioning and curation
-- Navigation and portfolio experience
-- Story and scanability
-- Trust, access, and polish
-- Coverage of the target role
+- Priority
+- Reason
+- Effort estimate when useful
+- Linked finding IDs
+- A reminder that the candidate decides whether to make the change
 
-For each finding:
+Use `Must address`, `High-value improvement`, `Quick win`,
+`Optional refinement`, and `Do not prioritize for this JD`.
 
-```text
-Finding:
-Evidence location:
-Observation:
-Why it matters for this JD:
-Evidence grade:
-Recommendation:
-Concrete example or structure:
-Candidate facts needed:
-```
+## Complete portfolio inventory
 
-## 9. Project-by-project review
+List every submitted or reachable portfolio surface and case study. Include:
 
-Review every submitted or reachable project. Low JD relevance is itself a curation finding, not a reason to omit the project.
+- Item and type
+- Candidate role
+- Capabilities shown
+- JD relevance
+- Contribution to the overall positioning
+- Access status
 
-### Project name
+List inaccessible material as `Not assessable`; do not omit it.
 
-- Relevance to JD:
-- Strongest evidence:
-- Weakest or missing evidence:
-- Problem and context:
-- Ownership and collaboration:
-- Judgment and process:
-- Role-specific craft:
-- Outcomes and learning:
-- Recommended treatment: `Lead with`, `Keep`, `Condense`, `Reframe`, or `Consider removing for this JD`
+## JD-to-evidence review
 
-Do not recommend removal solely because a project is old. Explain relevance and evidence coverage.
+For each material requirement show:
 
-## 10. Reviewer lenses
+- Importance
+- Evidence found
+- Exact location
+- Evidence grade
+- Interpretation and hiring risk
+- Recommended response
 
-### Recruiter lens
+Use only `Strong evidence`, `Partial evidence`, `Missing evidence`,
+`Contradictory evidence`, and `Not assessable`.
 
-State what is easy or difficult to understand during initial screening.
+## Reviewer lenses
 
-### Hiring manager lens
+Keep three distinct readings:
 
-State what the portfolio suggests and fails to prove about scope, ownership, judgment, complexity, and level.
+- Recruiter: role clarity, relevance, scanability, access, and credibility
+- Hiring manager: ownership, judgment, complexity, collaboration, and outcomes
+- Craft: discipline-specific quality from the selected role lens
 
-### Craft lens
+State disagreements between lenses instead of repeating the same observation.
 
-Apply the selected discipline-specific criteria.
+## Experience and health
 
-## 11. Portfolio experience and technical health
+Record navigation, responsive behavior, legibility, broken assets, loading,
+semantic structure, accessibility observations, password friction, contact
+information, and PDF presentation quality when inspected. Use `Observed`,
+`Issue`, or `Not assessed`.
 
-| Check | Finding | Location | Status |
-|---|---|---|---|
+## Scope and candidate questions
 
-Use `Observed`, `Issue`, or `Not assessed`. Do not imply automated accessibility compliance.
+Close with:
 
-## 12. Prioritized action plan
+- Materials inspected
+- Materials unavailable
+- Role lens and candidate context
+- Tool, NDA, or access limitations
+- Only the questions that could materially change the audit
 
-### Must address
+## Chat handoff
 
-### High-value improvements
-
-### Quick wins
-
-### Optional refinements
-
-### Do not prioritize for this JD
-
-Keep each action traceable to a finding.
-
-## 13. Concrete suggestion examples
-
-Use examples only for the highest-value issues.
-
-```text
-Current evidence:
-
-Why it is insufficient or unclear:
-
-Suggested information structure:
-
-Example with explicit placeholders:
-
-Candidate must verify or supply:
-```
-
-Never provide invented final copy.
-
-## 14. Questions for the candidate
-
-Ask only questions that could materially change the assessment or unlock missing evidence.
-
-## 15. Re-audit appendix
-
-Include only in re-audit mode.
-
-| Prior finding | Status | New evidence | What improved | Remaining gap | Next action |
-|---|---|---|---|---|---|
+After verifying the HTML, return no more than five diagnosis bullets, a link to
+the HTML report, unavailable material, and an optional link to the JSON used
+for re-audit. Do not duplicate the complete report in chat.

@@ -10,13 +10,14 @@
 - Website annotations
 - PDF annotations
 - Accessible presentation
-- Degraded modes
+- Capability recovery
+- Accepted degraded mode
 
 ## Purpose
 
-Use visual annotations to connect a material finding to an exact visible location. Treat annotations as a delivery format, not a scoring system.
+Use visual annotations to connect a material finding to an exact visible location. Treat annotations as a required report layer, not a scoring system or an optional decoration.
 
-Always pair visual callouts with a text finding index. The image should make the location obvious; the report should contain the reasoning and recommendation.
+Always pair visual callouts with a text finding index inside the standalone HTML report. The image should make the location obvious; the linked finding should contain the reasoning and recommendation.
 
 ## Source handling
 
@@ -37,6 +38,12 @@ Annotate:
 - Representative mobile and desktop views when responsive review is available
 
 Do not add callouts merely to decorate every page. A page with no material issue may remain unmarked and still appear in the complete portfolio inventory.
+
+Use one readable source view for multiple findings on the same surface. Do not
+capture redundant viewport, full-page, desktop, and mobile variants by
+default. Capture mobile only for an observed responsive issue, an explicit
+responsive audit, or a user request. Stop collecting views once every material
+finding has a readable visual source.
 
 ## Stable IDs
 
@@ -80,7 +87,7 @@ When browser and screenshot tools are available:
 1. Crawl the portfolio's intended navigation and build the complete inventory.
 2. Capture each surface with a material finding.
 3. Capture representative desktop and mobile views when responsive behavior is in scope.
-4. Mark screenshot copies, not the live DOM or website source.
+4. Place numbered HTML overlay pins over screenshot copies inside the report; do not modify the live DOM or website source.
 5. Preserve page URL, viewport, and capture context in the finding index.
 6. Use multiple screenshots for long pages rather than shrinking the full page until unreadable.
 
@@ -105,12 +112,26 @@ When PDF rendering and annotation tools are available:
 - Provide a text alternative for every annotation.
 - Avoid covering the content being discussed.
 
-## Degraded modes
+## Capability recovery
 
-Use the best supported mode:
+If the host can inspect but cannot capture:
 
-1. `Annotated artifact`: marked-up screenshots or PDF copy plus finding index.
-2. `Visual reference`: unmodified screenshot or rendered page plus numbered textual regions and finding index.
-3. `Location-only`: URL, page, section, heading, or quoted text plus finding index.
+1. Ask the user for screenshots or a PDF export.
+2. Continue the non-visual analysis while waiting only when that work remains useful.
+3. Do not complete the audit as a chat-only report.
 
-State which mode was used and which richer modes were unavailable.
+If the host can capture but cannot edit image pixels, use HTML overlay pins.
+Pixel-level image markup is not required.
+
+If the host cannot create files, ask for a writable workspace. Do not describe
+the chat transcript as a visual report.
+
+## Accepted degraded mode
+
+Use `Location-only` only when the user explicitly agrees after being told that
+visual capture or rendering is unavailable. In that case:
+
+- Still create the standalone HTML report.
+- Show the exact URL, PDF page, section, heading, or quoted text.
+- State `Visual capture unavailable in this host` in the report scope.
+- Preserve stable IDs so screenshots can be added during a later re-audit.

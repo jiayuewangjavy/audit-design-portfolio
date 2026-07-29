@@ -38,6 +38,7 @@ Adopt:
 - Recruiter lens
 - Prioritized action plan
 - Technical-health checks when tools support them
+- A report hierarchy that moves from diagnosis to page-level evidence and actions
 
 Reject or modify:
 
@@ -59,6 +60,7 @@ Adopt:
 
 - Locate feedback by screenshot, page, section, heading, or visible element.
 - Treat portfolio material as sensitive user data.
+- Keep the reviewed page and its feedback in the same visual field.
 
 ### Refine
 
@@ -76,6 +78,7 @@ Adopt:
 - Multi-dimensional deep review
 - Prioritized recommendations
 - Re-audit and change tracking
+- Preserve stable finding references across revision cycles.
 
 Reject or modify:
 
@@ -243,3 +246,6 @@ This skill combines the strongest transferable mechanisms:
 11. Anti-fabrication rules for metrics, ownership, research, and outcomes.
 12. Re-audit that distinguishes real evidence improvement from cosmetic rewriting.
 13. Privacy, NDA, accessibility, inclusion, and anti-bias safeguards.
+14. An artifact-first visual report that moves from executive diagnosis to annotated evidence, detailed findings, and prioritized actions.
+15. Captured website and rendered-PDF views with stable HTML overlay pins rather than modifications to the original artifact.
+16. A short chat handoff that links to the reusable report instead of presenting the full audit as a conversation transcript.

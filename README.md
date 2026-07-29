@@ -21,8 +21,8 @@ project-level evidence. It supports:
 - Recruiter, hiring-manager, and craft perspectives
 - A JD-to-evidence matrix without scores or match percentages
 - Project-by-project findings
-- Annotated screenshots or PDF copies when the host supports visual markup
-- Exact location-based findings when visual markup is unavailable
+- A standalone, self-contained visual HTML report
+- Website screenshot and rendered-PDF annotations with linked finding IDs
 - Prioritized recommendations and concrete example structures
 - A re-audit workflow for reviewing candidate-made revisions
 
@@ -89,14 +89,19 @@ JD: [paste, attach, or link the job description]
 Portfolio: [attach a PDF or provide the portfolio URL]
 
 Review every submitted or reachable case study. Annotate copies of the
-portfolio where supported, and do not modify the original.
+portfolio and deliver a standalone visual HTML report. Keep the chat response
+to a short summary and do not modify the original.
 ```
 
-The agent will use the richest supported delivery mode:
+The default delivery is:
 
-1. Annotated screenshots or PDF copies plus a finding index
-2. Unmodified visual references plus numbered textual callouts
-3. URL, page, section, or quoted-text locations plus a finding index
+1. `portfolio-audit-report.html` with embedded captures and clickable pins
+2. `report-data.json` for traceability and future re-audits
+3. A short chat summary linking to the report
+
+If the host cannot capture a website or render a PDF, the agent requests
+screenshots or an export instead of silently replacing the visual report with
+chat text.
 
 ## Skill structure
 
@@ -105,8 +110,16 @@ audit-design-portfolio/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── assets/
+│   └── report/
+│       ├── report-shell.html
+│       ├── report.css
+│       └── report.js
+├── scripts/
+│   └── build_report.mjs
 └── references/
     ├── audit-framework.md
+    ├── report-data-schema.md
     ├── report-template.md
     ├── research-basis.md
     ├── role-lenses.md
