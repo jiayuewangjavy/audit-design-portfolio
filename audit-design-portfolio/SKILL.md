@@ -20,6 +20,8 @@ Audit a candidate's portfolio against a specific job description. Base every jud
 - Treat the visual report as the primary deliverable. Do not use a long chat response as the final report.
 - Create a self-contained HTML report and return a short chat summary with a link to that artifact.
 - Place captured portfolio views and their numbered findings in the same report.
+- Use the restrained Fluent 2-inspired visual system bundled with this skill.
+  Keep the report simple, neutral, compact, and optimized for scanning.
 - Match the language of the user's request unless the user asks for another language.
 - State what could not be inspected and label it `Not assessable`.
 

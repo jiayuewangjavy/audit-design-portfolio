@@ -36,18 +36,22 @@ The report must:
 
 ## Visual direction
 
-Use an editorial review dossier rather than a SaaS analytics dashboard.
+Use a restrained, Fluent 2-inspired review workspace. Optimize for focus,
+scanability, and long-form reading rather than visual spectacle.
 
-- Warm paper, ink-like neutrals, and one restrained annotation color
-- Strong serif and sans-serif hierarchy
-- Asymmetric chapter headings and deliberate whitespace
-- Ruled tables and flat editorial groupings
-- Source captures and critique in the same visual field
-- Stable numbered markers rather than decorative charts
+- Use quiet neutral surfaces with one restrained blue brand color
+- Use Segoe UI or the native platform sans-serif stack
+- Keep the cover compact; the report should begin above the fold
+- Use a clear type ramp, sentence case, and left alignment
+- Use thin strokes to group related information
+- Reserve low elevation and soft shadow for sticky or raised surfaces
+- Keep source captures and critique in the same visual field
+- Use stable numbered markers rather than decorative charts
+- Use semantic color only when it communicates evidence state
 
-Avoid repeated rounded cards, nested containers, glass effects, purple-blue
-gradients, giant metrics, score gauges, traffic-light summaries, and chat
-transcript styling.
+Avoid editorial-poster styling, oversized serif headlines, ornamental
+backgrounds, repeated nested cards, glass effects, gradients, giant metrics,
+score gauges, traffic-light summaries, and chat transcript styling.
 
 ## Report sequence
 
@@ -78,7 +82,8 @@ Show:
 - Annotation mode
 - The statement `No scores · Observable evidence only`
 
-Do not place fake metrics or decorative charts on the cover.
+Keep the cover compact and left aligned. Do not place fake metrics,
+decorative charts, or large ornamental graphics on it.
 
 ## Executive diagnosis
 

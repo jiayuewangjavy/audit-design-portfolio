@@ -156,7 +156,7 @@ function tagGrade(grade) {
 
 function chapterHeading(number, title, description) {
   return `<header class="chapter-heading">
-    <div><span class="chapter-kicker">${esc(number)} · Review chapter</span></div>
+    <div><span class="chapter-kicker">Section ${esc(number)}</span></div>
     <div><h2>${esc(title)}</h2><p>${esc(description)}</p></div>
   </header>`;
 }
