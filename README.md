@@ -123,3 +123,6 @@ human review services, and hiring-team guidance. The sources and the decisions
 to adopt, modify, or reject particular patterns are recorded in
 [`research-basis.md`](audit-design-portfolio/references/research-basis.md).
 
+## License
+
+MIT — see [LICENSE](LICENSE).
