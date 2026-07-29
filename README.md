@@ -93,6 +93,77 @@ portfolio and deliver a standalone visual HTML report. Keep the chat response
 to a short summary and do not modify the original.
 ```
 
+### Full audit prompt template
+
+Attach the JD and portfolio files, or replace the placeholders with accessible
+links, then copy this prompt into your agent:
+
+```text
+Use $audit-design-portfolio to audit my complete portfolio and evaluate how
+well its observable evidence supports the target job description.
+
+Target job description:
+[Paste the JD, attach the JD file, or provide an accessible URL]
+
+Portfolio:
+[Attach the portfolio PDF or provide the portfolio website URL]
+
+Candidate context:
+- Target role: [e.g. Senior Product Designer]
+- Career stage: [e.g. experienced job seeker, career changer, or student]
+- Target market or location: [optional]
+- Questions I most want answered: [optional]
+
+Audit requirements:
+
+1. Review the complete portfolio, including every submitted or reachable case
+   study. Do not evaluate only the home page or one representative project.
+2. Create a complete portfolio inventory before judging individual projects.
+   Explain what the collection communicates as a body of work, including
+   repeated strengths, evidence gaps, contradictions, and positioning risks.
+3. Translate the JD into observable hiring requirements and map each material
+   requirement to evidence in the portfolio.
+4. Use only Strong, Partial, Missing, Conflict, and N/A evidence grades. Do not
+   produce an overall score, percentage match, rank, or benchmark.
+5. Capture relevant website views or render relevant PDF pages. Place numbered
+   annotations on those captured copies and link each annotation to its
+   detailed finding.
+6. For every material finding, include:
+   - Exact location
+   - Observable evidence
+   - Why it matters for this JD
+   - Evidence grade
+   - A concrete recommendation
+   - An example structure when useful
+   - Any facts the candidate must verify or supply
+7. Review the portfolio from three distinct perspectives:
+   - Recruiter
+   - Hiring manager
+   - Role-specific craft reviewer
+8. Do not modify the original portfolio, website, PDF, source files, or copy.
+   Do not invent metrics, outcomes, research, responsibilities, ownership, or
+   decision-making evidence.
+9. Generate a standalone, self-contained, interactive HTML report as the
+   primary deliverable. Include the complete inventory, annotated evidence,
+   detailed findings, JD-to-evidence review, reviewer lenses, and prioritized
+   action plan.
+10. Keep the chat response to no more than five summary bullets and provide a
+    link to the HTML report.
+11. If a website page cannot be accessed, a PDF cannot be rendered, or visual
+    captures cannot be created, ask me for screenshots or an accessible export
+    before completing the audit. Do not silently replace the visual report with
+    a chat-only review.
+
+Begin the audit.
+```
+
+For a password-protected portfolio, add:
+
+```text
+This portfolio requires authorized access. Tell me how to provide access
+securely. Do not include credentials or passwords in the final report.
+```
+
 The default delivery is:
 
 1. `portfolio-audit-report.html` with embedded captures and clickable pins
