@@ -525,6 +525,10 @@ th,
   border-radius: 999px;
 }
 
+.grade {
+  white-space: nowrap;
+}
+
 .grade-strong {
   color: var(--color-success);
   background: var(--color-success-bg);

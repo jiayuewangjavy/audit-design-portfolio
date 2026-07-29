@@ -36,6 +36,14 @@ const GRADE_CLASSES = {
   "Not assessable": "grade-not-assessable",
 };
 
+const GRADE_LABELS = {
+  "Strong evidence": "Strong",
+  "Partial evidence": "Partial",
+  "Missing evidence": "Missing",
+  "Contradictory evidence": "Conflict",
+  "Not assessable": "N/A",
+};
+
 const MIME_TYPES = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
@@ -151,7 +159,8 @@ function embedImage(source, baseDir) {
 
 function tagGrade(grade) {
   const className = GRADE_CLASSES[grade] ?? "grade-not-assessable";
-  return `<span class="grade ${className}">${esc(grade)}</span>`;
+  const label = GRADE_LABELS[grade] ?? "N/A";
+  return `<span class="grade ${className}" aria-label="${esc(grade)}" title="${esc(grade)}">${esc(label)}</span>`;
 }
 
 function chapterHeading(number, title, description) {

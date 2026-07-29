@@ -48,6 +48,9 @@ scanability, and long-form reading rather than visual spectacle.
 - Keep source captures and critique in the same visual field
 - Use stable numbered markers rather than decorative charts
 - Use semantic color only when it communicates evidence state
+- Display evidence badges as `Strong`, `Partial`, `Missing`, `Conflict`, or
+  `N/A`; keep the canonical evidence grade in the report data and accessible
+  label
 
 Avoid editorial-poster styling, oversized serif headlines, ornamental
 backgrounds, repeated nested cards, glass effects, gradients, giant metrics,
