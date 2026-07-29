@@ -51,6 +51,9 @@ scanability, and long-form reading rather than visual spectacle.
 - Display evidence badges as `Strong`, `Partial`, `Missing`, `Conflict`, or
   `N/A`; keep the canonical evidence grade in the report data and accessible
   label
+- Show a compact evidence key after the executive diagnosis in every report.
+  Explain that grades evaluate observable portfolio evidence, not the
+  candidate's underlying ability.
 
 Avoid editorial-poster styling, oversized serif headlines, ornamental
 backgrounds, repeated nested cards, glass effects, gradients, giant metrics,

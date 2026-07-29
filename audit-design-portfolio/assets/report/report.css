@@ -354,6 +354,60 @@ th,
   font-weight: 600;
 }
 
+.evidence-key {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-stroke);
+}
+
+.evidence-key-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-5);
+  align-items: baseline;
+}
+
+.evidence-key-heading h3 {
+  margin: 0;
+  font-size: var(--text-body-large);
+  font-weight: 600;
+}
+
+.evidence-key-heading p {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--color-fg-secondary);
+  font-size: var(--text-body);
+}
+
+.evidence-key dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1px;
+  margin: var(--space-4) 0 0;
+  overflow: hidden;
+  background: var(--color-stroke);
+  border: 1px solid var(--color-stroke);
+  border-radius: var(--radius-medium);
+}
+
+.evidence-key dl div {
+  min-width: 0;
+  padding: var(--space-3);
+  background: var(--color-bg-surface);
+}
+
+.evidence-key dt,
+.evidence-key dd {
+  margin: 0;
+}
+
+.evidence-key dd {
+  margin-top: var(--space-2);
+  color: var(--color-fg-secondary);
+  font-size: var(--text-caption);
+}
+
 .evidence-plate {
   width: 100%;
   min-width: 0;
@@ -843,6 +897,7 @@ td:first-child {
   .masthead,
   .cover-footer,
   .source-caption,
+  .evidence-key-heading,
   .report-footer-inner {
     display: grid;
     grid-template-columns: 1fr;

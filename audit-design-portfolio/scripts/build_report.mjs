@@ -44,6 +44,14 @@ const GRADE_LABELS = {
   "Not assessable": "N/A",
 };
 
+const GRADE_DESCRIPTIONS = {
+  "Strong evidence": "Clear, credible evidence supports the requirement.",
+  "Partial evidence": "Relevant evidence is present, but important proof is incomplete.",
+  "Missing evidence": "No observable evidence was found in the reviewed materials.",
+  "Contradictory evidence": "Visible evidence conflicts with or weakens the claimed fit.",
+  "Not assessable": "The available materials do not support a reliable judgment.",
+};
+
 const MIME_TYPES = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
@@ -221,6 +229,24 @@ function renderNav(sections) {
   </nav>`;
 }
 
+function renderEvidenceKey() {
+  const items = [...EVIDENCE_GRADES]
+    .map(
+      (grade) => `<div>
+        <dt>${tagGrade(grade)}</dt>
+        <dd>${esc(GRADE_DESCRIPTIONS[grade])}</dd>
+      </div>`
+    )
+    .join("");
+  return `<aside class="evidence-key" aria-labelledby="evidence-key-title">
+    <div class="evidence-key-heading">
+      <h3 id="evidence-key-title">Evidence key</h3>
+      <p>Grades describe what the reviewed portfolio makes observable for this JD, not the candidate's underlying ability.</p>
+    </div>
+    <dl>${items}</dl>
+  </aside>`;
+}
+
 function renderDiagnosis(meta) {
   const facts = [
     ["Portfolio quality", meta.portfolio_quality],
@@ -240,6 +266,7 @@ function renderDiagnosis(meta) {
       <blockquote>${esc(meta.executive_summary || "No executive diagnosis supplied.")}</blockquote>
       <dl class="diagnosis-facts">${facts}</dl>
     </div>
+    ${renderEvidenceKey()}
   </section>`;
 }
 
